@@ -13,6 +13,13 @@ gem 'foundation-rails'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'simple_form'
+gem 'foundation-rails'
+gem 'protected_attributes'
+gem 'rolify'
+gem 'annotate'
+
+
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

@@ -5,4 +5,7 @@ Emailbolt::Application.routes.draw do
   get '/signin' => 'sessions#new', :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
+
+  get '/:nickname' => "users#nickname"
+
 end
