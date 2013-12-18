@@ -17,8 +17,8 @@ gem 'foundation-rails'
 gem 'protected_attributes'
 gem 'rolify'
 gem 'annotate'
-
-
+gem 'multimap'
+gem 'rest-client'
 
 group :development do
   gem 'better_errors'
