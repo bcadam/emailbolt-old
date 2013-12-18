@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @bolt.address %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bolt.user_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bolt.description %>
+</p>
+
+<%= link_to 'Edit', edit_bolt_path(@bolt) %> |
+<%= link_to 'Back', bolts_path %>

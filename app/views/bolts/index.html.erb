@@ -1,0 +1,33 @@
+<h1>Listing bolts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>User</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bolts.each do |bolt| %>
+      <tr>
+        <td><%= bolt.address %></td>
+        <td><%= bolt.user_id %></td>
+        <td><%= bolt.description %></td>
+        <td><%= link_to 'Show', bolt %></td>
+        <td><%= link_to 'Edit', edit_bolt_path(bolt) %></td>
+        <td><%= link_to 'Destroy', bolt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%#= @bolts.length %>
+<%#= debug(@bolts.first) %>
+<br>
+
+<%= link_to 'New Bolt', new_bolt_path %>

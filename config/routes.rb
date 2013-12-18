@@ -1,4 +1,6 @@
 Emailbolt::Application.routes.draw do
+  resources :bolts
+
   root :to => "home#index"
   resources :users, :only => [:index, :show, :edit, :update ]
   get '/auth/:provider/callback' => 'sessions#create'
