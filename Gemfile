@@ -21,7 +21,6 @@ gem 'annotate'
 gem 'multimap'
 gem 'rest-client'
 #gem 'json'
-gem 'pg'
 
 group :development do
   gem 'better_errors'
@@ -31,4 +30,9 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'pg'
+end
+
+group :production do
+  # gems specifically for Heroku go here
+  gem "pg"
 end
