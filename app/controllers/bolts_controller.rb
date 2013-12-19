@@ -35,6 +35,11 @@ class BoltsController < ApplicationController
 
   end
 
+  def fulladdress
+    #{}"#{@bolt.address}@emailbolt"
+    #@bolt.address + "@emailbolt.com" 
+  end
+
   # POST /bolts
   # POST /bolts.json
   def create
@@ -42,7 +47,7 @@ class BoltsController < ApplicationController
 
 
     #value = create_route(5,"test", "test@emailbolt.com", "info@rooftop.me") 
-    value = create_route(10, @bolt.description, @bolt.address + "@emailbolt.com" , current_user.email)
+    value = create_route(10, @bolt.description, "#{@bolt.address}@emailbolt" , current_user.email)
     value = JSON.parse(value)
     value = value.fetch("route")
     value = value.fetch("id")
@@ -99,8 +104,7 @@ class BoltsController < ApplicationController
   end
 
   def get_routes
-    RestClient.get "https://api:" + ENV["MAIL_GUN_KEY"] + 
-    "@api.mailgun.net/v2/routes", :params => {
+    RestClient.get "https://api:key-1ytwinacpa11k-yg2e8xtjz5dy2myxk4@api.mailgun.net/v2/routes", :params => {
       :limit => 100
     }
   end
@@ -112,17 +116,15 @@ class BoltsController < ApplicationController
     data = Multimap.new
     data[:priority] = priority
     data[:description] = description
-    data[:expression] = "match_recipient('" + recipient + "')"
-    data[:action] = "forward('" + forward + "')"
+    data[:expression] = "match_recipient('#{recipient}')"
+    data[:action] = "forward('#{forward}')"
     data[:action] = "stop()"
-    RestClient.post "https://api:" + ENV["MAIL_GUN_KEY"] + 
-    "@api.mailgun.net/v2/routes", data
+    RestClient.post "https://api:key-1ytwinacpa11k-yg2e8xtjz5dy2myxk4@api.mailgun.net/v2/routes", data
   end
 
   def destroy_route(routeid)
     RestClient.
-    delete("https://api:" + ENV["MAIL_GUN_KEY"] + 
-    "@api.mailgun.net/v2/routes/" + routeid ){|response, request, result| response }
+    delete("https://api:key-1ytwinacpa11k-yg2e8xtjz5dy2myxk4@api.mailgun.net/v2/routes/" + routeid ){|response, request, result| response }
   end
 
 
