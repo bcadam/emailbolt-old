@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
+
 gem 'rails', '4.0.1'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
@@ -20,6 +21,7 @@ gem 'annotate'
 gem 'multimap'
 gem 'rest-client'
 #gem 'json'
+gem 'pg'
 
 group :development do
   gem 'better_errors'
