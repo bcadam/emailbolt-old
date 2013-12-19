@@ -1,14 +1,11 @@
 class BoltsController < ApplicationController
   before_action :set_bolt, only: [:show, :edit, :update, :destroy]
+  before_filter :admin_user?, :only => [:index]
 
   # GET /bolts
   # GET /bolts.json
   def index
-    if current_user.nickname != 'AdamCragg'
-      redirect_to "/" + current_user.nickname, :alert => 'No access.' 
-    else
     @bolts = Bolt.all
-    end
   end
 
   # GET /bolts/1
@@ -18,20 +15,7 @@ class BoltsController < ApplicationController
 
   # GET /bolts/new
   def new
-    #@user = current_user
     @bolt = Bolt.new
-    #temp = @bolt.address.to_s + "@emailbolt.com"
-
-    #value = create_route(5,"test", "test@emailbolt.com", "info@rooftop.me") 
-    #value = create_route(10, @bolt.description, temp.to_s , current_user.email)
-    #value = JSON.parse(value)
-    #value = value.fetch("route")
-    #value = value.fetch("id")
-
-    #value = "tst"
-
-    
-    #@bolt.routeid = value
   end
 
   # GET /bolts/1/edit
@@ -39,18 +23,11 @@ class BoltsController < ApplicationController
 
   end
 
-  def fulladdress
-    #{}"#{@bolt.address}@emailbolt"
-    #@bolt.address + "@emailbolt.com" 
-  end
-
   # POST /bolts
   # POST /bolts.json
   def create
     @bolt = Bolt.new(bolt_params)
 
-
-    #value = create_route(5,"test", "test@emailbolt.com", "info@rooftop.me") 
     value = create_route(10, @bolt.description, "#{@bolt.address}@emailbolt" , current_user.email)
     value = JSON.parse(value)
     value = value.fetch("route")
@@ -73,12 +50,7 @@ class BoltsController < ApplicationController
       end
     end
 
-    #value = JSON.parse(value)
-    #value = value.fetch("route")
-    #value = value.fetch("id")
-    #@bolt.routeid = value
-
-
+  
   end
 
   # PATCH/PUT /bolts/1

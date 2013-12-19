@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :user_signed_in?
   helper_method :correct_user?
+  helper_method :admin_user?
 
   private
     def current_user
@@ -28,6 +29,16 @@ class ApplicationController < ActionController::Base
       if !current_user
         redirect_to root_url, :alert => 'You need to sign in for access to this page.'
       end
+    end
+
+    def admin_user?
+      if !current_user
+        redirect_to root_url, :alert => 'You need to sign in for access to this page.'
+      end
+      if !current_user.has_role? :admin
+        redirect_to root_url, :alert => 'You need to be an admin for access to this page.'
+      end
+
     end
 
 end

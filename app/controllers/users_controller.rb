@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user! , :except => [:index, :nickname]
   before_filter :correct_user?, :except => [:index, :nickname]
+  before_filter :admin_user?, :only => [:index]
 
   def index
-    if current_user.nickname != 'AdamCragg'
-      redirect_to "/" + current_user.nickname, :alert => 'No access.' 
-    else
     @users = User.all
-    end
   end
 
   def edit
@@ -17,7 +14,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      #redirect_to @user
       redirect_to "/" + current_user.nickname, :notice => 'Your account has been created! Create some bolts to get started.' 
     else
       render :edit
@@ -36,7 +32,6 @@ class UsersController < ApplicationController
         render template: 'users/profile'
       else
         redirect_to root_url, :alert => 'That\'s not your page.'
-        #render template: 'users/show'
       end
 
   end
