@@ -1,19 +1,22 @@
 <% content_for :title, "EmailBolt" %>
+<div class="row large-12"><p></p></div>
 <div class="row">
- 
+ <%#= debug(@user.bolts) %>
+ <%#= get_routes %>
   <!-- Side Bar -->
  
         <div class="large-4 small-12 columns">
  
           <%= image_tag(@user.image) %>
  
-          <div class="hide-for-small panel">
+          <div class="panel">
             <h3><%= @user.name %></h3>
             <p></p>
             <h5 class="subheader"><p>Handle: <%= @user.nickname %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+            <p>Email: <%= @user.email if @user.email %></p>
 				<%#= create_route(1, "Test email", "adam.cragg@sandbox2609.mailgun.org", "adam.cragg@gmail.com") %>
 				<%#= temp = get_routes %>
+        <a href="/bolts/new" class="button [radius round]">Add bolt</a>
             </h5>
           </div>
  
@@ -28,70 +31,31 @@
     <!-- End Side Bar -->
  
  
-    <!-- Thumbnails -->
- 
-        <div class="large-8 columns">
-          <div class="row">
- 
-            <div class="large-4 small-6 columns">
-              <img src="http://placehold.it/1000x1000&text=Thumbnail">
- 
-              <div class="panel">
-                <h5>Item Name</h5>
-                <h6 class="subheader">$000.00</h6>
-              </div>
-            </div>
- 
-            <div class="large-4 small-6 columns">
-              <img src="http://placehold.it/500x500&text=Thumbnail">
- 
-              <div class="panel">
-                <h5>Item Name</h5>
-                <h6 class="subheader">$000.00</h6>
-              </div>
-            </div>
- 
-            <div class="large-4 small-6 columns">
-              <img src="http://placehold.it/500x500&text=Thumbnail">
- 
-              <div class="panel">
-                <h5>Item Name</h5>
-                <h6 class="subheader">$000.00</h6>
-              </div>
-            </div>
- 
-            <div class="large-4 small-6 columns">
-              <img src="http://placehold.it/500x500&text=Thumbnail">
- 
-              <div class="panel">
-                <h5>Item Name</h5>
-                <h6 class="subheader">$000.00</h6>
-              </div>
-            </div>
- 
-            <div class="large-4 small-6 columns">
-              <img src="http://placehold.it/500x500&text=Thumbnail">
- 
-              <div class="panel">
-                <h5>Item Name</h5>
-                <h6 class="subheader">$000.00</h6>
-              </div>
-            </div>
- 
-            <div class="large-4 small-6 columns">
-              <img src="http://placehold.it/500x500&text=Thumbnail">
- 
-              <div class="panel">
-                <h5>Item Name</h5>
-                <h6 class="subheader">$000.00</h6>
-              </div>
-            </div>
-          </div>
- 
-    <!-- End Thumbnails -->
- 
- 
+    <div class="large-8 small-12 columns">
     
+    <%#= destroy_route(@user.bolts.first.routeid.to_s) %>
+
+    <% @user.bolts.reverse.each do |b| %>
+      <!-- Feed Entry -->
+      <div class="row">
+        <div class="large-2 columns small-3"><!-- <img src="http://placehold.it/80x80&text=[img]" /> --></div>
+        <div class="large-10 columns">
+          <p><strong>Address: <%= b.address + "@emailbolt.com" %></strong></p>
+          <ul class="inline-list">
+            <% if b.description != '' %>
+            <li>Description: <%= b.description %></li><br />
+            <% end %>
+            <li>Id: <%= b.id %></li><br />
+            <!-- <li>RouteID: <%#= b.routeid %></li><br /> -->
+            <li><%= "Created: " + b.created_at.asctime %></li><br />
+            <li><%= link_to 'Destroy', b, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr />
+       <!-- End Feed Entry -->
+       <% end %>
  
           </div>
         </div>

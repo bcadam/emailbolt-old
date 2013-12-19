@@ -2,6 +2,7 @@ Emailbolt::Application.routes.draw do
   resources :bolts
 
   root :to => "home#index"
+
   resources :users, :only => [:index, :show, :edit, :update ]
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
@@ -10,4 +11,5 @@ Emailbolt::Application.routes.draw do
 
   get '/:nickname' => "users#nickname"
 
+  
 end

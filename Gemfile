@@ -19,6 +19,7 @@ gem 'rolify'
 gem 'annotate'
 gem 'multimap'
 gem 'rest-client'
+#gem 'json'
 
 group :development do
   gem 'better_errors'

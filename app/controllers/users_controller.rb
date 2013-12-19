@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to @user
+      #redirect_to @user
+      redirect_to "/" + current_user.nickname, :notice => 'Your account has been created! Create some bolts to get started.' 
     else
       render :edit
     end
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
 
   def show
       @user = User.find(params[:id])
-    end
+      end
 
   end
 
@@ -63,5 +64,21 @@ class UsersController < ApplicationController
     "@api.mailgun.net/v2/routes", data
   end
 
+  def get_route_id(routeid)
+    RestClient.
+    get("https://api:" + ENV["MAIL_GUN_KEY"] + 
+    "@api.mailgun.net/v2/routes/" + routeid ){|response, request, result| response }
+  end
+
+  
+
+  #def boltdestroy
+    #@bolt = Bolt.find(params[:id])
+    #@bolt.destroy
+    #respond_to do |format|
+     # format.html { redirect_to bolts_url }
+     # format.json { head :no_content }
+   # end
+ # end
 
 
