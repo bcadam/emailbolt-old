@@ -4,7 +4,11 @@ class BoltsController < ApplicationController
   # GET /bolts
   # GET /bolts.json
   def index
+    if current_user.nickname != 'AdamCragg'
+      redirect_to "/" + current_user.nickname, :alert => 'No access.' 
+    else
     @bolts = Bolt.all
+    end
   end
 
   # GET /bolts/1

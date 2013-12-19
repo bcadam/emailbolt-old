@@ -3,7 +3,11 @@ class UsersController < ApplicationController
   before_filter :correct_user?, :except => [:index, :nickname]
 
   def index
+    if current_user.nickname != 'AdamCragg'
+      redirect_to "/" + current_user.nickname, :alert => 'No access.' 
+    else
     @users = User.all
+    end
   end
 
   def edit
