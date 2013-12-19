@@ -10,7 +10,7 @@
             <% end %>
             <!-- <li>Id: <%#= b.id %></li><br /> -->
             <!-- <li>RouteID: <%#= b.routeid %></li><br /> -->
-            <li><%= "Created: " + b.created_at.asctime %></li><br />
+            <li><%= "Created: " + b.created_at.asctime %></li><br /><br />
             <li><%= link_to '<button class="button alert">Destroy</button>'.html_safe, b, method: :delete, data: { confirm: 'Are you sure?' } %></li>
           </ul>
         </div>
