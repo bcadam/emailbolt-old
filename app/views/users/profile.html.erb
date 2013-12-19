@@ -16,7 +16,7 @@
             <p>Email: <%= @user.email if @user.email %></p>
 				<%#= create_route(1, "Test email", "adam.cragg@sandbox2609.mailgun.org", "adam.cragg@gmail.com") %>
 				<%#= temp = get_routes %>
-        <a href="/bolts/new" class="button [radius round]">Add bolt</a>
+        <a href="/bolts/new" class="button [secondary success alert]">Add bolt</a>
             </h5>
           </div>
  
@@ -45,10 +45,10 @@
             <% if b.description != '' %>
             <li>Description: <%= b.description %></li><br />
             <% end %>
-            <li>Id: <%= b.id %></li><br />
+            <!-- <li>Id: <%#= b.id %></li><br /> -->
             <!-- <li>RouteID: <%#= b.routeid %></li><br /> -->
             <li><%= "Created: " + b.created_at.asctime %></li><br />
-            <li><%= link_to 'Destroy', b, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <li><%= link_to '<button class="button alert">Destroy</button>'.html_safe, b, method: :delete, data: { confirm: 'Are you sure?' } %></li>
           </ul>
         </div>
       </div>

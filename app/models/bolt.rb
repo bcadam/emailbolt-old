@@ -16,6 +16,6 @@ class Bolt < ActiveRecord::Base
 
 	attr_accessible :user_id, :address, :routeid, :description, :created_at, :updated_at, :id
 
-	validates :address, uniqueness: true, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "Only letters and numbers allowed." }
+	validates :address, uniqueness: true, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "Only letters allowed." }
 
 end
