@@ -1,6 +1,8 @@
+<div class="row">
 <%= form_for(@user) do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
   <br />
   <%= f.submit "Sign in", :class => "button [secondary success]" %>
 <% end %>
+</div>

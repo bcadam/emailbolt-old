@@ -45,6 +45,8 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     debug_inspector (0.0.2)
+    email_validator (1.4.0)
+      activemodel
     erubis (2.7.0)
     execjs (2.0.2)
     factory_girl (4.3.0)
@@ -155,6 +157,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  email_validator
   factory_girl_rails
   figaro
   foundation-rails

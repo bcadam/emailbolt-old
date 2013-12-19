@@ -20,6 +20,7 @@ gem 'rolify'
 gem 'annotate'
 gem 'multimap'
 gem 'rest-client'
+gem 'email_validator'
 #gem 'json'
 
 group :development do
