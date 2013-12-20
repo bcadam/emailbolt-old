@@ -11,7 +11,8 @@ Emailbolt::Application.routes.draw do
 
   get '/:nickname' => "users#nickname"
 
-  #get '/lookup' => ''
+  post '/home/lookup' => 'home#lookup'
 
   
+
 end

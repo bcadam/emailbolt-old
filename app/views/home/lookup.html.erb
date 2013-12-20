@@ -1,0 +1,8 @@
+<div class="row">
+<h3>Email lookup</h3>
+<%#= debug @lookup %>
+<p>What's publicly available for your email: <%= @lookup.to_s %></p>
+<p><% temparray = JSON.parse(get_data(@lookup.to_s)) %></p>
+<p><%= temparray %></p>
+
+</div>
