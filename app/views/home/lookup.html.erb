@@ -47,10 +47,22 @@ var buyerData = [
 		color : "#FFEA88"
 	}
 ];
+
 var pieOptions = {
-	segmentShowStroke : false,
-	animateScale : false,
-	animation : true,
+	segmentShowStroke : true,
+    segmentStrokeColor : "#fff",
+    segmentStrokeWidth : 2,
+    percentageInnerCutout : 50,
+    animation : true,
+    animationSteps : 100,
+    animationEasing : "easeOutBounce",
+    animateRotate : true,
+    animateScale : false,
+    onAnimationComplete : null,
+    labelFontFamily : "Arial",
+    labelFontStyle : "normal",
+    labelFontSize : 24,
+    labelFontColor : "#666"
 }
 
 var buyers = document.getElementById('buyers').getContext('2d');

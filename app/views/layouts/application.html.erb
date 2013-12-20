@@ -7,10 +7,11 @@
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "Chart" %>
+    <%= javascript_include_tag "modernizr" %>
+    <%#= javascript_include_tag "Chart" %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag %>
+    <script src="http://www.chartjs.org/assets/Chart.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   </head>
 
