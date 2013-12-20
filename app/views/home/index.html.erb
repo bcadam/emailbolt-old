@@ -1,4 +1,5 @@
-  <% content_for :title, "EmailBolt" %>
+<% content_for :title, "EmailBolt" %>
+
 <!-- Header -->
   <div class="row">
     <div class="large-12 columns">
@@ -6,20 +7,62 @@
     </div>
   </div>
 
-  <!-- End Header -->
+<!-- End Header -->
 
 
   <div class="row">
 
-    <div class="large-3 panel columns">
-      <img src="http://placehold.it/500x500&text=Image">
-
-      <h4>Header</h4>
-
-      <p>Fusce ullamcorper mauris in eros dignissim molestie posuere felis blandit. Aliquam erat volutpat. Mauris ultricies posuere vehicula. Sed sit amet posuere erat. Quisque in ipsum non augue euismod dapibus non et eros.</p>
-
+    <div class="large-4 medium-4 small-12 columns">
+    <div class="panel">
+    <%= image_tag ('identity256.png'), :style => 'display: block; margin-left: auto; margin-right: auto; max-height:200px;' %>
+    <h4>Private</h4>
+    <p>Your online identity is being mapped by the good, the bad, and the ugly. Use our tool to see what others know about you from your email.</p>
+    </div>
     </div>
 
+    <div class="large-4 medium-4 small-6 columns">
+    <div class="panel">
+    <%= image_tag ('fast512.png'), :style => 'display: block; margin-left: auto; margin-right: auto; max-height:200px;' %>
+    <h4>Fast</h4>
+    <p >In a couple of seconds create a private email alias that you can use for a specific group or even a private email for each contact.</p>
+    </div>
+    </div>
+    
+    <div class="large-4 medium-4 small-6 columns">
+    <div class="panel">
+    <%= image_tag ('trash256.png'), :style => 'display: block; margin-left: auto; margin-right: auto; max-height:200px;' %>
+    <h4>Disposable</h4>
+    <p >If your email is ever compromised, just throw it away. With one click you can delete the alias keeping your personal email safe.</p>
+    </div>
+    </div>
+
+  </div>
+
+   <div class="row">
+ 
+    <div class="large-6 medium-5 small-12 columns">
+      <div class="panel">
+        <h5>Check what your email is telling others!</h5>
+        <p><%= render ('shared/emailcheck') %></p>
+      </div>
+    </div>
+    <div class="large-2 medium-3 small-6 columns">
+      <div class="panel">
+        <p>
+          <%= link_to image_tag("twittersquare256.png"), "http://www.twitter.com/EmailBolt" %>
+        </p>
+      </div>
+    </div>
+    <div class="large-4 medium-4 small-6 columns">
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a four columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami.</p>
+      </div>
+    </div>
+ 
+  </div>
+    
+<!-- 
     <div class="large-9 columns">
       <div class="panel">
         <div class="row">
@@ -70,7 +113,7 @@
 
           <div class="large-3 columns end">
             <img src="http://placehold.it/600x500&text=Thumbnail">
-          </div>
+          </div> 
         </div>
       </div>
 
@@ -91,8 +134,8 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
 
-  </div>
+  
 
   <%= render ('shared/footer') %>
