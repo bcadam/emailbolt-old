@@ -1,8 +1,91 @@
+<% content_for :title, "EmailBolt" %>
+<% temparray = JSON.parse(get_data(@lookup.to_s)) %>
+<% temparray = temparray.keys %>
+<% threats = temparray.length %>
+<% total = 12 - threats %>
+
+
 <div class="row">
-<h3>Email lookup</h3>
-<%#= debug @lookup %>
-<p>What's publicly available for your email: <%= @lookup.to_s %></p>
-<p><% temparray = JSON.parse(get_data(@lookup.to_s)) %></p>
-<p><%= temparray %></p>
+<h3>Results</h3>
+<br />
+
+<div class="row">
+
+<div class="large-12 columns">
+
+<div class="large-4 medium-4 small-6 columns left">
+<canvas id="buyers" width="500px" height="400px"></canvas>
+</div>
+
+<div class="large-8 medium-4 small-6 columns left">
+<div class="panel"><h5>What's publicly available for your email <%= @lookup.to_s %></h5>
+<p>There are <%= threats %> data points tied to this email.</p>
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<style>canvas{
+        width: 100% !important;
+        max-width: 800px;
+        height: auto !important;
+    }
+    </style>
+<script>
+var buyerData = [
+	{
+		value : <%= threats %>,
+		color : "#FF8153"
+	},
+	{
+		value : <%= total %>,
+		color : "#FFEA88"
+	}
+];
+var pieOptions = {
+	segmentShowStroke : false,
+	animateScale : false,
+	animation : true,
+}
+
+var buyers = document.getElementById('buyers').getContext('2d');
+new Chart(buyers).Pie(buyerData,pieOptions);
+</script>
+
+
+
+
+
+</div>
+
+
+<br />
+
+
+<!-- Thumbnails -->
+<div class="row">
+
+<div class="large-12 columns">
+
+<% temparray.each do |b| %>
+
+<div class="large-3 medium-4 small-6 columns left">
+<%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;" %>
+<div class="panel">
+<h5><%= b.humanize %></h5>
+</div>
+</div>
+
+<% end %>    
+
+</div>
+
+</div>
+<!-- End Thumbnails -->
 
 </div>

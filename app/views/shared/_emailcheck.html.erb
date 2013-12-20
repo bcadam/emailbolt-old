@@ -1,5 +1,5 @@
 <%= form_tag({controller: "home", action: "lookup"}, method: "post", class: "nifty_form") do %>
-  <%= label_tag(:q, "Search for:") %>
+  <%#= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:needle) %>
   <%= submit_tag "Search", class: "button" %>
 <% end %>
