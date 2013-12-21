@@ -56,8 +56,9 @@
 
         <!-- Thumbnails -->
         <div class="row">
-        <h4>What's publicly available for your email adam@mit.edu</h4>
-
+        <% if temparray != nil %>
+            <h4>What's publicly available for your email adam@mit.edu</h4>
+        <% end %>
             <div class="large-12 columns">
 
                 <% temparray.each do |b| %>
