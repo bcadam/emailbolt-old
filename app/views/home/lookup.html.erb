@@ -6,50 +6,94 @@
 
 
 <div class="row">
-<h3>Results</h3>
-<br />
+    <h3>Results</h3>
+    <br />
 
-<div class="row">
+        <div class="row">
 
-<div class="large-12 columns">
+            <div class="large-12 columns">
 
-<div class="large-4 medium-5 small-12 columns left">
-<canvas id="buyers" width="500px" height="400px"></canvas>
+                <div class="large-4 medium-5 small-12 columns left">
+                    <canvas id="results" width="500px" height="400px"></canvas>
+                </div>
+
+                <div class="large-8 medium-7 small-12 columns left">
+                    
+                    <div class="panel large-12 medium-12 small-12 columns">
+                    
+                    <h4>What's publicly available for your email adam@mit.edu</h4>
+                        <div class="large-6 small-12 columns">
+                            <div class="large-4 medium-2 small-12 columns" style="height:40px;width:40px;background-color:#FF8153;"></div>
+                            <div class="large-8 medium-10 small-12 columns right"><h6>There were <%= threats %> data point matches.</h6></div>
+                        </div>
+                        <div class="large-6 columns">
+                            <div class="large-4 medium-2 small-12 columns" style="height:40px;width:40px;background-color:#FFEA88;"></div>
+                            <div class="large-8 medium-10 small-12 columns right"><h6>There were <%= total %> data points missing.</h6></div>
+                        </div>
+                            
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+    <br />
+
+
+        <!-- Thumbnails -->
+        <div class="row">
+
+            <div class="large-12 columns">
+
+                <% temparray.each do |b| %>
+
+                <div class="large-3 medium-4 small-6 columns left">
+                    <%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;" %>
+                    <div class="panel">
+                        <h5><%= b.humanize %></h5>
+                    </div>
+                </div>
+
+            <% end %>    
+
+            </div>
+
+        </div>
+        <!-- End Thumbnails -->
 </div>
 
-<div class="large-8 medium-7 small-12 columns left">
-<div class="panel"><h5>What's publicly available for your email <%= @lookup.to_s %></h5>
-<p>There are <%= threats %> data points tied to this email.</p>
-</div>
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<style>canvas{
+<style>
+    canvas
+        {
         width: 100% !important;
         max-width: 800px;
         height: auto !important;
-    }
-    </style>
+        }
+</style>
+
 <script>
 var buyerData = [
-	{
-		value : <%= threats %>,
-		color : "#FF8153"
-	},
-	{
-		value : <%= total %>,
-		color : "#FFEA88"
-	}
+    {
+        label : 'Sleep',
+        labelColor : 'white',
+        labelFontSize : '16',
+        value : <%= threats %>,
+        color : "#FF8153"
+    },
+    {
+        label : 'Sleep',
+        labelColor : 'white',
+        labelFontSize : '16',
+        value : <%= total %>,
+        color : "#FFEA88"
+    }
 ];
 
 var pieOptions = {
-	segmentShowStroke : true,
+    segmentShowStroke : true,
     segmentStrokeColor : "#fff",
     segmentStrokeWidth : 2,
     percentageInnerCutout : 50,
@@ -58,47 +102,19 @@ var pieOptions = {
     animationEasing : "easeOutBounce",
     animateRotate : true,
     animateScale : false,
-    onAnimationComplete : null,
+    onAnimationComplete : "revealInfo()",
     labelFontFamily : "Arial",
     labelFontStyle : "normal",
     labelFontSize : 24,
     labelFontColor : "#666"
 }
 
-var buyers = document.getElementById('buyers').getContext('2d');
-new Chart(buyers).Pie(buyerData,pieOptions);
+function revealInfo()
+{
+    alert("Hello World!");
+}
+
+var results = document.getElementById('results').getContext('2d');
+new Chart(results).Pie(buyerData,pieOptions);
 </script>
-
-
-
-
-
-</div>
-
-
-<br />
-
-
-<!-- Thumbnails -->
-<div class="row">
-
-<div class="large-12 columns">
-
-<% temparray.each do |b| %>
-
-<div class="large-3 medium-4 small-6 columns left">
-<%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;" %>
-<div class="panel">
-<h5><%= b.humanize %></h5>
-</div>
-</div>
-
-<% end %>    
-
-</div>
-
-</div>
-<!-- End Thumbnails -->
-
-</div>
 <%= render ('shared/footer') %>

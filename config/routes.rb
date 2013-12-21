@@ -11,6 +11,7 @@ Emailbolt::Application.routes.draw do
 
 	get '/home/faq' => "home#faq"
 	post '/home/lookup' => 'home#lookup'
+	post '/lookup' => 'home#lookup'
 	get '/faq' => "home#faq"
 	get '/tos' => 'home#tos'
 
