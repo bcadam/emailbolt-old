@@ -25,7 +25,7 @@ gem 'rolify'
 gem 'annotate'
 gem 'multimap'
 gem 'rest-client'
-gem 'email_validator'
+#gem 'email_validator'
 gem 'google-analytics-rails'
 #gem 'json'
 
