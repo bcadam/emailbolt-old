@@ -1,14 +1,25 @@
 <% content_for :title, "EmailBolt" %>
+<% if @lookup != nil %>
 <% temparray = JSON.parse(get_data(@lookup.to_s)) %>
 <% temparray = temparray.keys %>
 <% threats = temparray.length %>
 <% total = 12 - threats %>
-
-
+<% end %>
+<br />
 <div class="row">
+    <% if total == nil %>
+    <div class="row">
+    <div class="large-12 columns">
+    <h3>See what your email is saying about you!</h3>
+    <%= render ('shared/emailcheck') %>
+    </div>
+    </div>
+    <% end %>
+    <% if total != nil %>
+    <div class="row">
     <h3>Results</h3>
     <br />
-
+    
         <div class="row">
 
             <div class="large-12 columns">
@@ -57,12 +68,16 @@
                     </div>
                 </div>
 
-            <% end %>    
+                <% end %>    
 
             </div>
 
         </div>
         <!-- End Thumbnails -->
+
+        
+    </div> 
+    <% end %>
 </div>
 
 <style>
