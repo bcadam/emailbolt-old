@@ -13,19 +13,14 @@
  
     <section class="top-bar-section" id="navbar">
       <!-- Right Nav Section -->
-      <ul style="margin-top:-20px" class="right">
+    <ul style="margin-top:-20px" class="right">
+        <li><%= link_to 'FAQs', "/faq" %></li>
         <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Profile', "/" + current_user.nickname %>
-    </li>
-    <li>
-    <%= link_to 'Logout', signout_path %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', signin_path %>
-    </li>
-  <% end %>
+        <li><%= link_to 'Profile', "/" + current_user.nickname %></li>
+        <li><%= link_to 'Logout', signout_path %></li>
+        <% else %>
+        <li><%= link_to 'Login', signin_path %></li>
+        <% end %>
       </ul>
     </section>
   </nav>

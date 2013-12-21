@@ -1,17 +1,21 @@
 Emailbolt::Application.routes.draw do
-  resources :bolts
+	resources :bolts
 
-  root :to => "home#index"
+	root :to => "home#index"
 
-  resources :users, :only => [:index, :show, :edit, :update ]
-  get '/auth/:provider/callback' => 'sessions#create'
-  get '/signin' => 'sessions#new', :as => :signin
-  get '/signout' => 'sessions#destroy', :as => :signout
-  get '/auth/failure' => 'sessions#failure'
+	resources :users, :only => [:index, :show, :edit, :update ]
+	get '/auth/:provider/callback' => 'sessions#create'
+	get '/signin' => 'sessions#new', :as => :signin
+	get '/signout' => 'sessions#destroy', :as => :signout
+	get '/auth/failure' => 'sessions#failure'
 
-  get '/:nickname' => "users#nickname"
+	get '/home/faq' => "home#faq"
+	post '/home/lookup' => 'home#lookup'
+	get '/faq' => "home#faq"
 
-  post '/home/lookup' => 'home#lookup'
+	get '/:nickname' => "users#nickname"
+
+
 
   
 
