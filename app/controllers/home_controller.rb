@@ -18,4 +18,8 @@ class HomeController < ApplicationController
 
   end
 
+  def tos
+    
+  end
+
 end
