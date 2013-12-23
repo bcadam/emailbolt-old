@@ -38,6 +38,7 @@ class UsersController < ApplicationController
         redirect_to root_url, :alert => 'That\'s not your page.'
       end
 
+
   end
 
 
