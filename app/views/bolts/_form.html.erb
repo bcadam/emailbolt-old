@@ -3,8 +3,10 @@
 	<% temp = current_user.id %>
 	<%#= temp = temp.to_i %>
   <div class="form-inputs">
+    <%= f.label "What would you like your bolt address to be?" %>
     <%= f.input :address %>
     <%= f.hidden_field :user_id, :value => temp %>
+    <%= f.label "Who have you shared this bolt with?" %>
     <%= f.input :description %>
     <%= f.hidden_field :routeid %>
   </div>

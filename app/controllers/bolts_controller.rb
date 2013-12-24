@@ -37,10 +37,6 @@ class BoltsController < ApplicationController
 
     respond_to do |format|
       if @bolt.save
-            
-
-
-
         format.html { redirect_to "/" + current_user.nickname, :notice => 'That bolt has created!' }
         #format.html { redirect_to @bolt, notice: 'Bolt was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bolt }

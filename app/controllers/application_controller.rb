@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :correct_user?
   helper_method :admin_user?
+  helper_method :correct_user_nickname?
 
   private
     def current_user
@@ -25,6 +26,19 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def correct_user_nickname?
+      @user = User.find_by nickname: params[:nickname]
+      if @user == nil
+          count = User.where('LOWER(nickname) = ?', params[:nickname].downcase) unless params[:nickname].blank?
+          @user = count.take
+      end
+
+      if !current_user || @user.id != current_user.id
+        redirect_to root_url, :alert => 'That\'s not your page.'
+      end
+
+    end
+
     def authenticate_user!
       if !current_user
         redirect_to root_url, :alert => 'You need to sign in for access to this page.'
@@ -35,7 +49,7 @@ class ApplicationController < ActionController::Base
       if !current_user
         redirect_to root_url, :alert => 'You need to sign in for access to this page.'
       end
-      
+
       if !current_user.has_role? :admin
         redirect_to root_url, :alert => 'You need to be an admin for access to this page.'
       end

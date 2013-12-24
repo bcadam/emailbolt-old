@@ -15,7 +15,7 @@
             <h3><%= @user.name %></h3>
             <p></p>
             <h5 class="subheader"><p>Handle: <%= @user.nickname %></p>
-            <p>Email: <%= @user.email if @user.email %></p>
+            <p>Email: <%= link_to @user.email , @user.nickname + '/edit' %></p>
 				<%#= create_route(1, "Test email", "adam.cragg@sandbox2609.mailgun.org", "adam.cragg@gmail.com") %>
 				<%#= temp = get_routes %>
         <a href="/bolts/new" class="button small-12 medium-8 large-8 [secondary success alert]">Add bolt</a>

@@ -9,11 +9,11 @@ Emailbolt::Application.routes.draw do
 	get '/signout' => 'sessions#destroy', :as => :signout
 	get '/auth/failure' => 'sessions#failure'
 
-	get '/home/faq' => "home#faq"
+	#get '/home/faq' => "home#faq"
 	
 	post '/lookup' => 'home#lookup'
 	get '/lookup' => 'home#lookup'
-	
+
 	#get '/home/lookup' => 'home#lookup'
 	#post '/home/lookup' => 'home#lookup'
 
@@ -21,6 +21,7 @@ Emailbolt::Application.routes.draw do
 	get '/tos' => 'home#tos'
 
 	get '/:nickname' => "users#nickname"
+	get '/:nickname/edit' => "users#edit"
 
 
 
