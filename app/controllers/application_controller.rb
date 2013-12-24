@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
       if !current_user
         redirect_to root_url, :alert => 'You need to sign in for access to this page.'
       end
+      
       if !current_user.has_role? :admin
         redirect_to root_url, :alert => 'You need to be an admin for access to this page.'
       end

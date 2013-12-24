@@ -1,14 +1,10 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user! , :except => [:index, :nickname]
   before_filter :correct_user?, :except => [:index, :nickname]
-  #before_filter :admin_user?, :only => [:index]
+  before_filter :admin_user?, :only => [:index]
 
   def index
-    if current_user.has_role? :admin
       @users = User.all
-    else
-      redirect_to root_url, :alert => 'You aren\'t an admin.'
-    end
   end
 
   def edit
