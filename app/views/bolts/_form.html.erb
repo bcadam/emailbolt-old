@@ -3,15 +3,13 @@
 	<% temp = current_user.id %>
 	<%#= temp = temp.to_i %>
   <div class="form-inputs">
-    <%= f.label "What would you like your bolt address to be?" %>
-    <%= f.input :address %>
+    <%= f.input :address, label: 'What would you like your bolt address to be?', placeholder: "will become *@emailbolt.com" %>
     <%= f.hidden_field :user_id, :value => temp %>
-    <%= f.label "Who have you shared this bolt with?" %>
-    <%= f.input :description %>
+    <%= f.input :description, label: "Who have you shared this bolt with?", placeholder: "Google group, Mr. Smith, bakery club etc." %>
     <%= f.hidden_field :routeid %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, :class => "button [secondary success alert]" %>
+  <div class="form-actions clearfix">
+    <%= f.button :submit, :class => "button right large-5 medium-5 small-5[secondary success alert]" %> <a href='/<%= current_user.nickname %>'><input class="btn button alert large-5 medium-5 small-5"value="Cancel" /></a>
   </div>
 <% end %>

@@ -1,5 +1,9 @@
 <% content_for :title, "EmailBolt" %>
+<div class="row">
 <h3>Users</h3>
+<div class="row">
+<!--<canvas id="results" width="500px" height="150px"></canvas>-->
+</div>
 <ul class="users">
   <% @users.each do |user| %>
     <li>
@@ -9,3 +13,43 @@
     </li>
   <% end %>
 </ul>
+</div>
+
+<style>
+    canvas
+        {
+        width: 100% !important;
+        max-width: 800px;
+        height: auto !important;
+        }
+</style>
+
+<script>
+var buyerData = {
+	labels : [<%= Time.now.month-6 %>,<%= Time.now.month-5 %>,<%= Time.now.month-4 %>,<%= Time.now.month-3 %>,<%= Time.now.month-2 %>,<%= Time.now.month-1 %>, <%= Time.now.month %>],
+	datasets : [
+		/*{
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+			pointStrokeColor : "#fff",
+			data : [65,59,90,81,56,55,40]
+		},*/
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : [28,48,40,19,96,27,100]
+		}
+	]
+}
+
+function revealInfo()
+{
+    alert("Hello World!");
+}
+
+var results = document.getElementById('results').getContext('2d');
+new Chart(results).Line(buyerData);
+</script>
