@@ -25,6 +25,4 @@ Emailbolt::Application.routes.draw do
 
 
 
-  
-
 end

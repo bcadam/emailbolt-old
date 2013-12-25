@@ -74,7 +74,7 @@ class BoltsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   def get_routes
     RestClient.get "https://api:key-1ytwinacpa11k-yg2e8xtjz5dy2myxk4@api.mailgun.net/v2/routes", :params => {
       :limit => 100

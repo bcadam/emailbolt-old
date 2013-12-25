@@ -9,7 +9,7 @@
 <div class="row">
     <% if total == nil %>
     <div class="row">
-    <div class="large-12 columns">
+    <div class="large-12 small-12 medium-12 columns">
     <h3>See what your email is saying about you!</h3>
     <%= render ('shared/emailcheck') %>
     </div>
@@ -69,9 +69,9 @@
                 <% temparray.each do |b| %>
 
                 <div class="large-3 medium-4 small-6 columns left">
-                    <%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;" %>
-                    <div class="panel">
-                        <h5><%= b.humanize %></h5>
+                    <%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;max-width:256px;max-height:256px;" %>
+                    <div class="panel" class="small-panel" style="min-height:100px">
+                        <h4><%= b.humanize %></h4>
                     </div>
                 </div>
 
