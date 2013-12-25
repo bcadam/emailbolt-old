@@ -6,10 +6,9 @@
 <% total = 12 - threats %>
 <% end %>
 <br />
-<div class="row">
     <% if total == nil %>
     <div class="row">
-    <div class="large-12 small-12 medium-12 columns">
+    <div class="large-12 smallcolumns">
     <h3>See what your email is saying about you!</h3>
     <%= render ('shared/emailcheck') %>
     </div>
@@ -60,7 +59,6 @@
 
 
         <!-- Thumbnails -->
-        <div class="row">
         <% if temparray.length != 0 %>
             <h4>What's publicly available for your email adam@mit.edu</h4>
         <% end %>
@@ -79,13 +77,10 @@
 
             </div>
 
-        </div>
         <!-- End Thumbnails -->
 
         
-    </div> 
     <% end %>
-</div>
 
 <style>
     canvas
