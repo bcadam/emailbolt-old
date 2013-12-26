@@ -10,7 +10,7 @@
 <ul class="users">
   <% @users.each do |user| %>
     <li class="panel" style="list-style-type:none;">
-    	<%= image_tag (user.image) %>
+    	<%= image_tag (user.image), :style => "max-width:200px;height:auto;" %>
       	<%= user.id %>:
       	<%= link_to user.name, "/" + user.nickname %> signed up in <%= user.created_at.strftime("%B") %>
       	<%#= link_to user.destroy %>
