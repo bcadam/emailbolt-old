@@ -4,7 +4,7 @@
         <div class="large-2 columns small-3"><!-- <img src="http://placehold.it/80x80&text=[img]" /> --></div>
         <div class="large-10 columns">
           <div class="clearfix">
-          <%= link_to '<button class="button right alert small-12 large-3 medium-4">Destroy</button>'.html_safe, b, method: :delete, data: { confirm: 'Are you sure?' } %>
+          
           <ul class="inline-list left small-12 medium-8 large-9">
             <li><strong>Address: <%= b.address + "@emailbolt.com" %></strong></li><br /><br />
             <% if b.description != '' %>
@@ -12,8 +12,10 @@
             <% end %>
             <!-- <li>Id: <%#= b.id %></li><br /> -->
             <!-- <li>RouteID: <%#= b.routeid %></li><br /> -->
-            <li><%= "Created: " + b.created_at.asctime %></li><br /><br />
+            <li><%= "Created: " + b.created_at.asctime %></li>
+            <!--<li><%= "ID: " + b.id.to_s %></li>--><br />
           </ul>
+          <%= link_to '<button class="button right alert small-12 large-3 medium-4">Destroy</button>'.html_safe, b, method: :delete, data: { confirm: 'Are you sure you want to destroy ' + b.address + "@emailbolt.com?" } %>
           </div>
         </div>
       </div>

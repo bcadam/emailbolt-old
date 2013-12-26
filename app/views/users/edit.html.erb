@@ -1,7 +1,8 @@
 <% content_for :title, "EmailBolt" %>
 <div class="row">
+<br />
 <%= form_for(@user) do |f| %>
-  <%= f.label :email %>
+  <%#= f.label :email %>
   <h3>This is the email that we'll send to.</h3>
   <%= f.text_field :email %>
   <br />

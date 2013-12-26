@@ -28,6 +28,7 @@ gem 'rest-client'
 #gem 'email_validator'
 gem 'google-analytics-rails'
 #gem 'json'
+gem 'forgery', '0.5.0'
 
 group :development do
   gem 'better_errors'

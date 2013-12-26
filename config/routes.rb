@@ -8,7 +8,8 @@ Emailbolt::Application.routes.draw do
 	get '/signin' => 'sessions#new', :as => :signin
 	get '/signout' => 'sessions#destroy', :as => :signout
 	get '/auth/failure' => 'sessions#failure'
-
+	
+	get '/instant' => 'bolts#instant'
 	#get '/home/faq' => "home#faq"
 	
 	post '/lookup' => 'home#lookup'
@@ -23,7 +24,7 @@ Emailbolt::Application.routes.draw do
 	get '/:nickname' => "users#nickname"
 	get '/:nickname/edit' => "users#edit"
 
-	get '/bolts/instant' => 'bolts#instant'
+
 
 
 

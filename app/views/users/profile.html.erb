@@ -18,8 +18,8 @@
             <p>Email: <%= link_to @user.email  , @user.nickname + '/edit'   %></p>
 				<%#= create_route(1, "Test email", "adam.cragg@sandbox2609.mailgun.org", "adam.cragg@gmail.com") %>
 				<%#= temp = get_routes %>
-        <a href="/bolts/new" class="button small-12 medium-12 large-12 [secondary success alert]">Add custom bolt</a>
-        <a href="/bolts/instant" style="color:white;" class="small-12 medium-12 large-12 button">Add instant bolt</a>
+        <span data-tooltip data-options="disable_for_touch:true" class="has-tip" title="Allows you to set a custom address and description for each bolt."><a href="/bolts/new" class="button small-12 medium-12 large-12 [secondary success alert]">Add custom bolt</a></span>
+        <span data-tooltip data-options="disable_for_touch:true" class="has-tip" title="Randomly creates a bolt address to get you going faster."><a href="/instant" style="color:white;" class="small-12 medium-12 large-12 button">Add instant bolt</a></span>
             </h5>
           </div>
  

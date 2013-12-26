@@ -1,6 +1,7 @@
 class BoltsController < ApplicationController
   before_action :set_bolt, only: [:show, :edit, :update, :destroy]
-  before_filter :admin_user?, :only => [:index]
+  before_filter :admin_user?, :only => [:index, :show]
+  #before_filter :correct_user?, :only => [:show]
 
   # GET /bolts
   # GET /bolts.json
@@ -19,7 +20,23 @@ class BoltsController < ApplicationController
   end
 
   def instant
-    
+    @bolt = Bolt.new
+    @bolt.address = create_random_name
+    @bolt.description = "Randomly generated bolt"
+    @bolt.user_id = current_user.id
+
+    value = create_route(10, @bolt.description, "#{@bolt.address}@emailbolt" , current_user.email)
+    value = JSON.parse(value)
+    value = value.fetch("route")
+    value = value.fetch("id")
+
+    @bolt.routeid = value
+
+
+    @bolt.save
+    #@bolt = Bolt.new(bolt_params)
+    redirect_to "/" + current_user.nickname, :notice => 'That bolt has created!'
+    #render template: 'bolts/new'
   end
 
   # GET /bolts/1/edit
@@ -85,7 +102,10 @@ class BoltsController < ApplicationController
     }
   end
 
-
+  def create_random_name
+    name = Forgery(:name).full_name + Forgery(:address).country
+    name.gsub(/\s+/, "").downcase
+  end
 
 ## create_route(5,"test", "test@emailbolt.com", "info@rooftop.me")
   def create_route(priority, description, recipient, forward)
