@@ -23,6 +23,8 @@ Emailbolt::Application.routes.draw do
 	get '/:nickname' => "users#nickname"
 	get '/:nickname/edit' => "users#edit"
 
+	get '/bolts/instant' => 'bolts#instant'
+
 
 
 end

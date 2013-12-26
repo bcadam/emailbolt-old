@@ -18,6 +18,10 @@ class BoltsController < ApplicationController
     @bolt = Bolt.new
   end
 
+  def instant
+    
+  end
+
   # GET /bolts/1/edit
   def edit
 
