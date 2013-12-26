@@ -103,7 +103,8 @@ class BoltsController < ApplicationController
   end
 
   def create_random_name
-    name = Forgery(:name).full_name + Forgery(:address).country
+    name = Forgery(:name).full_name + Forgery(:basic).number(:at_least => 1,
+               :at_most => 100).to_s
     name.gsub(/\s+/, "").downcase
   end
 
