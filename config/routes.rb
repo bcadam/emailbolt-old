@@ -10,7 +10,7 @@ Emailbolt::Application.routes.draw do
 	get '/auth/failure' => 'sessions#failure'
 	
 	get '/instant' => 'bolts#instant'
-	#get '/home/faq' => "home#faq"
+	#get '/home/faq' => "home#faq" 
 	
 	post '/lookup' => 'home#lookup'
 	get '/lookup' => 'home#lookup'

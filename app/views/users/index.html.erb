@@ -1,5 +1,6 @@
 <% content_for :title, "EmailBolt" %>
 <div class="row">
+<br />
 <h3>Users</h3>
 <div class="row">
 <%# temp = @users.where(["created_at < ?", Time.now]) %>
@@ -7,16 +8,27 @@
 <%#= temp.length %>
 <!-- <canvas id="results" width="500px" height="150px"></canvas> -->
 </div>
-<ul class="users">
+<table border="0" bordercolor="white" style="background-color:white" width="100%" cellpadding="5" cellspacing="3">
+  <tr>
+    <th>Image</th>
+    <th>User ID</th>
+    <th>Name</th>
+    <th>Joined</th>
+    <th>Bolts</th>
+    <th>Email</th>
+  </tr>
   <% @users.each do |user| %>
-    <li class="panel" style="list-style-type:none;">
-    	<%= image_tag (user.image), :style => "max-width:200px;height:auto;" %>
-      	<%= user.id %>:
-      	<%= link_to user.name, "/" + user.nickname %> signed up in <%= user.created_at.strftime("%B") %>
-      	<%#= link_to user.destroy %>
-    </li>
+  <tr>
+    <td><%= image_tag (user.image), :style => "max-width:200px;height:auto;" %></td>
+    <td><%= user.id %></td>
+    <td><%= link_to user.name, "/" + user.nickname %></td>
+    <td><%= user.created_at.strftime("%B") %></td>
+    <td><%= user.bolts.length %></td>
+    <td><%= user.email %></td>
+  </tr>
   <% end %>
-</ul>
+</table>
+
 </div>
 <%#= @current_month = Date.today.strftime("%B") %>  
 

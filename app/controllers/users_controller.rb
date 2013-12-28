@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_filter :admin_user?, :only => [:index]
   before_filter :correct_user_nickname?, :only => [:nickname, :edit]
 
+  layout "profilelayout", :only => [ :nickname ]
+
   def index
       @users = User.all
   end
@@ -21,12 +23,13 @@ class UsersController < ApplicationController
   end
 
   def nickname
+    #layout 'application'
     render template: 'users/profile'
   end
 
 
   def show
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   
