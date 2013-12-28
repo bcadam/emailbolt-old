@@ -25,18 +25,16 @@ class BoltsController < ApplicationController
     @bolt.description = "Randomly generated bolt"
     @bolt.user_id = current_user.id
 
-    value = create_route(10, @bolt.description, "#{@bolt.address}@emailbolt" , current_user.email)
+    ## Repeated in create
+    value = create_route(10, @bolt.description, "#{@bolt.address}@emailbolt.com" , current_user.email)
     value = JSON.parse(value)
     value = value.fetch("route")
     value = value.fetch("id")
-
     @bolt.routeid = value
 
 
     @bolt.save
-    #@bolt = Bolt.new(bolt_params)
     redirect_to "/" + current_user.nickname, :notice => 'That bolt has created!'
-    #render template: 'bolts/new'
   end
 
   # GET /bolts/1/edit
@@ -49,7 +47,8 @@ class BoltsController < ApplicationController
   def create
     @bolt = Bolt.new(bolt_params)
 
-    value = create_route(10, @bolt.description, "#{@bolt.address}@emailbolt" , current_user.email)
+    ## Repeated in instant
+    value = create_route(10, @bolt.description, "#{@bolt.address}@emailbolt.com" , current_user.email)
     value = JSON.parse(value)
     value = value.fetch("route")
     value = value.fetch("id")
@@ -59,7 +58,6 @@ class BoltsController < ApplicationController
     respond_to do |format|
       if @bolt.save
         format.html { redirect_to "/" + current_user.nickname, :notice => 'That bolt has created!' }
-        #format.html { redirect_to @bolt, notice: 'Bolt was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bolt }
       else
         format.html { render action: 'new' }

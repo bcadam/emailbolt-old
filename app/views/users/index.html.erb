@@ -3,9 +3,6 @@
 <br />
 <h3>Users</h3>
 <div class="row">
-<%# temp = @users.where(["created_at < ?", Time.now]) %>
-<%# temp = @users.find(:all, :conditions => ["created_at > ?", 1.month.ago]) %>
-<%#= temp.length %>
 <!-- <canvas id="results" width="500px" height="150px"></canvas> -->
 </div>
 <table border="0" bordercolor="white" style="background-color:white" width="100%" cellpadding="5" cellspacing="3">
@@ -30,9 +27,7 @@
 </table>
 
 </div>
-<%#= @current_month = Date.today.strftime("%B") %>  
 
-<%#= @date.strftime("%B")%>
 <style>
     canvas
         {
