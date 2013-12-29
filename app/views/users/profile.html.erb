@@ -1,11 +1,12 @@
-<%  if @user.nickname == "AdamCragg"
-    @user.add_role :admin
-    end %>
+<%#  if @user.nickname == "AdamCragg" %>
+<%#  @user.add_role :admin %>
+<%#  end %>
+<br />
 <% content_for :title, "EmailBolt" %>
 <div class="row">
   <!-- Side Bar -->
  
-        <div id="firstStop" class="large-4 small-12 medium-4 columns">
+        <div class="large-4 small-12 medium-4 columns">
           <div class="large-6 medium-6 small-6">
           <%= image_tag(@user.image, :class => "hide-for-small") %><br />
           </div>
@@ -14,8 +15,8 @@
             <p></p>
             <h5 class="subheader"><p>Handle: <%= @user.nickname %></p>
             <p>Email: <%= link_to @user.email  , @user.nickname + '/edit'   %></p>
-        <span data-tooltip data-options="disable_for_touch:true" class="has-tip" title="Allows you to set a custom address and description for each bolt."><a href="/bolts/new" class="button small-12 medium-12 large-12 [secondary success alert]">Add custom bolt</a></span>
-        <span data-tooltip data-options="disable_for_touch:true" class="has-tip" title="Randomly creates a bolt address to get you going faster."><a href="/instant" style="color:white;" class="small-12 medium-12 large-12 button">Add instant bolt</a></span>
+        <a href="/bolts/new" class="button small-12 medium-12 large-12 [secondary success alert]">Add custom bolt</a>
+        <a href="/instant" style="color:white;" class="small-12 medium-12 large-12 button">Add instant bolt</a>
             </h5>
           </div>
         </div>
@@ -29,7 +30,10 @@
     <%= render ('shared/boltfeed') %>
  
     </div>
+    
+
     </div>
+
       
 <%= render ('shared/footer') %>
  
