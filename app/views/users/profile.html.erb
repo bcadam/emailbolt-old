@@ -1,13 +1,12 @@
 <%#  if @user.nickname == "AdamCragg" %>
 <%#  @user.add_role :admin %>
 <%#  end %>
-<br />
 <% content_for :title, "EmailBolt" %>
 <div class="row">
   <!-- Side Bar -->
- 
+        <div class="hide-for-small"><br /></div>
         <div class="large-4 small-12 medium-4 columns">
-          <div class="large-6 medium-6 small-6">
+          <div class="large-6 medium-6 small-6 hide-for-small">
           <%= image_tag(@user.image, :class => "hide-for-small") %><br />
           </div>
           <div class="panel">

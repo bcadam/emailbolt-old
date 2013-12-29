@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_filter :admin_user?, :only => [:index]
   before_filter :correct_user_nickname?, :only => [:nickname, :edit]
 
-  #layout "profilelayout", :only => [ :nickname ]
+  layout "profilelayout", :only => [ :nickname ]
 
   def index
       @users = User.all
