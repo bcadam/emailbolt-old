@@ -31,9 +31,8 @@ class BoltsController < ApplicationController
     value = value.fetch("route")
     value = value.fetch("id")
     @bolt.routeid = value
-
-
     @bolt.save
+    
     redirect_to "/" + current_user.nickname, :notice => 'That bolt has created!'
   end
 
