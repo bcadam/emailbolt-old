@@ -14,8 +14,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <%= analytics_init if Rails.env.production? %>
   </head>
-
   <body>
+  <% content_for :title, "EmailBolt" %>
   <%= render "layouts/navigation" %>
   <div class="row">
   <%= render "layouts/messages" %>
