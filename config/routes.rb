@@ -30,6 +30,7 @@ Emailbolt::Application.routes.draw do
 	get '/blog/:title' => 'blogs#title'
 
 	get '/extension' => "home#extension"
+	get '/extension.html' => "home#extension"
 	
 	get '/:nickname/edit' => "users#edit"
 	get '/:nickname' => "users#nickname"
