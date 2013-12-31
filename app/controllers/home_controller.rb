@@ -27,6 +27,7 @@ class HomeController < ApplicationController
   end
 
   def extension
+    render :layout => false 
   end
 
 
