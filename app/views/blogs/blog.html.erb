@@ -1,0 +1,20 @@
+<% content_for :title, "EmailBolt Blog" %>
+<br />
+<% @blogs.reverse.each do |blog| %>
+			<% if blog.published == true %>
+			<div class="row">
+				<div class="columns">
+					<div class="columns">
+					<div class="row"><h4><%= link_to "#{blog.title}", "/blogs/#{blog.id}" %></h4></div>
+						<div class="clearfix">
+							<div class="row right"><%= image_tag "data/age256.png" %></div>
+      						<div class="row"><%= blog.body %></div>
+      						<div class="row"><%#= blog.published %></div><br />
+      					</div>
+      				</div>
+      			</div>
+      		</div>
+      		<br /><br />
+       		<% end %>
+<% end %>
+

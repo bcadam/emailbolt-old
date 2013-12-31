@@ -4,6 +4,8 @@ Emailbolt::Application.routes.draw do
   	resources :blogs
 
 	resources :bolts
+	
+	get '/blog' => 'blogs#blog'
 
 	root :to => "home#index"
 

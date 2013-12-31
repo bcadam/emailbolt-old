@@ -1,8 +1,12 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
-  before_filter :admin_user?, :except => [:index]
+  before_filter :admin_user?, :except => [:blog, :show]
 
+  def blog
+    #populate_blog
+    @blogs = Blog.all
+  end
 
   # GET /blogs
   # GET /blogs.json
@@ -64,6 +68,45 @@ class BlogsController < ApplicationController
     end
   end
 
+  def populate_blog
+    
+    @blog = Blog.new
+    @blog.title = Forgery(:name).full_name
+    @blog.body = Forgery(:lorem_ipsum).words(50)
+    @blog.image = Forgery(:basic).password
+    @blog.published = true
+    @blog.save
+
+    @blog = Blog.new
+    @blog.title = Forgery(:name).full_name
+    @blog.body = Forgery(:lorem_ipsum).words(50)
+    @blog.image = Forgery(:basic).password
+    @blog.published = true
+    @blog.save
+
+    @blog = Blog.new
+    @blog.title = Forgery(:name).full_name
+    @blog.body = Forgery(:lorem_ipsum).words(50)
+    @blog.image = Forgery(:basic).password
+    @blog.published = true
+    @blog.save
+
+    @blog = Blog.new
+    @blog.title = Forgery(:name).full_name
+    @blog.body = Forgery(:lorem_ipsum).words(50)
+    @blog.image = Forgery(:basic).password
+    @blog.published = true
+    @blog.save
+
+    @blog = Blog.new
+    @blog.title = Forgery(:name).full_name
+    @blog.body = Forgery(:lorem_ipsum).words(50)
+    @blog.image = Forgery(:basic).password
+    @blog.published = true
+    @blog.save
+
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
@@ -72,6 +115,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :image, :publised)
+      params.require(:blog).permit(:title, :body, :image, :published)
     end
 end

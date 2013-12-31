@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     reset_session
     session[:user_id] = user.id
     if user.email.blank?
-      redirect_to edit_user_path(user), :notice => "Please enter your email address."
+      redirect_to "/" + current_user.nickname + "/edit", :notice => "Please enter your email address."
     else
       redirect_to "/" + current_user.nickname, :notice => 'Signed in.' 
     end

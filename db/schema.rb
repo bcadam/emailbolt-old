@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20131231002910) do
     t.string   "title"
     t.text     "body"
     t.string   "image"
-    t.boolean  "publised"
+    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
