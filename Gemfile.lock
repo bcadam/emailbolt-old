@@ -73,6 +73,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta-tags (1.5.0)
+      actionpack
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
@@ -164,6 +166,7 @@ DEPENDENCIES
   google-analytics-rails
   jbuilder (~> 1.2)
   jquery-rails
+  meta-tags
   multimap
   omniauth
   omniauth-twitter

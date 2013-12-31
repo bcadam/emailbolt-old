@@ -30,6 +30,8 @@ gem 'google-analytics-rails'
 #gem 'json'
 gem 'forgery', '0.5.0'
 
+gem 'meta-tags', :require => 'meta_tags'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

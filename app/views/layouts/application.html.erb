@@ -13,6 +13,7 @@
     <script src="http://www.chartjs.org/assets/Chart.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <%= analytics_init if Rails.env.production? %>
+    <%= display_meta_tags :site => 'EmailBolt' %>
   </head>
   <body>
   <% content_for :title, "EmailBolt" %>

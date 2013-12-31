@@ -1,4 +1,6 @@
 <% content_for :title, "EmailBolt" %>
+<% set_meta_tags :title => 'EmailBolt Security Tool' %>
+<% set_meta_tags :description => "Run a security check on the data that is currently tied to your email address." %>
 <% if @lookup != nil %>
 <% temparray = JSON.parse(get_data(@lookup.to_s)) %>
 <% temparray = temparray.keys %>

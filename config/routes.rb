@@ -1,4 +1,8 @@
 Emailbolt::Application.routes.draw do
+  	
+  	
+  	resources :blogs
+
 	resources :bolts
 
 	root :to => "home#index"
@@ -20,6 +24,8 @@ Emailbolt::Application.routes.draw do
 
 	get '/faq' => "home#faq"
 	get '/tos' => 'home#tos'
+
+	#get '/blog' => 'home#blog'
 
 	get '/extension' => "home#extension"
 	

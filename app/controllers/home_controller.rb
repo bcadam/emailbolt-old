@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
 	helper_method :get_data
 
-
-  layout false, :only => [ :extension ]
-
   def index
     @users = User.all
   end
@@ -25,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def extension
-
   end
+
 
 end
