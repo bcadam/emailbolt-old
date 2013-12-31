@@ -2,7 +2,8 @@ class HomeController < ApplicationController
 	helper_method :get_data
 
   def index
-    @users = User.all
+    #@users = User.all
+    response.headers['X-Frame-Options'] = "ALLOWALL"
   end
 
   def lookup
