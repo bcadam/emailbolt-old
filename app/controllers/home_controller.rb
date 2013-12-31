@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     #@users = User.all
-    response.headers['X-Frame-Options'] = "ALLOWALL"
+    #response.headers['X-Frame-Options'] = "ALLOWALL"
   end
 
   def lookup
