@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   before_filter :admin_user?, :except => [:blog, :show]
 
   def blog
-    #populate_blog
+    # populate_blog
     @blogs = Blog.all
   end
 
@@ -26,6 +26,11 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
+  end
+
+  def title
+    @blog = Blog.find_by title: params[:title]
+    render template: 'blogs/show'
   end
 
   # POST /blogs
@@ -73,35 +78,35 @@ class BlogsController < ApplicationController
     @blog = Blog.new
     @blog.title = Forgery(:name).full_name
     @blog.body = Forgery(:lorem_ipsum).words(50)
-    @blog.image = Forgery(:basic).password
+    @blog.image = "default.png"
     @blog.published = true
     @blog.save
 
     @blog = Blog.new
     @blog.title = Forgery(:name).full_name
     @blog.body = Forgery(:lorem_ipsum).words(50)
-    @blog.image = Forgery(:basic).password
+    @blog.image = "default.png"
     @blog.published = true
     @blog.save
 
     @blog = Blog.new
     @blog.title = Forgery(:name).full_name
     @blog.body = Forgery(:lorem_ipsum).words(50)
-    @blog.image = Forgery(:basic).password
+    @blog.image = "default.png"
     @blog.published = true
     @blog.save
 
     @blog = Blog.new
     @blog.title = Forgery(:name).full_name
     @blog.body = Forgery(:lorem_ipsum).words(50)
-    @blog.image = Forgery(:basic).password
+    @blog.image = "default.png"
     @blog.published = true
     @blog.save
 
     @blog = Blog.new
     @blog.title = Forgery(:name).full_name
     @blog.body = Forgery(:lorem_ipsum).words(50)
-    @blog.image = Forgery(:basic).password
+    @blog.image = "default.png"
     @blog.published = true
     @blog.save
 

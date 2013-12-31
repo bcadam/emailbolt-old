@@ -1,13 +1,10 @@
 Emailbolt::Application.routes.draw do
   	
-  	
+  	root :to => "home#index"
+
   	resources :blogs
 
 	resources :bolts
-	
-	get '/blog' => 'blogs#blog'
-
-	root :to => "home#index"
 
 	resources :users, :only => [:index, :show, :edit, :update ]
 	get '/auth/:provider/callback' => 'sessions#create'
@@ -28,11 +25,14 @@ Emailbolt::Application.routes.draw do
 	get '/tos' => 'home#tos'
 
 	#get '/blog' => 'home#blog'
+	get '/blog' => 'blogs#blog'
+	get '/blog/:title' => 'blogs#title'
 
 	get '/extension' => "home#extension"
 	
-	get '/:nickname' => "users#nickname"
 	get '/:nickname/edit' => "users#edit"
+	get '/:nickname' => "users#nickname"
+	
 
 
 

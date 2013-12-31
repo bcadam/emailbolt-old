@@ -1,19 +1,18 @@
+<% content_for :title, "EmailBolt #{@blog.title}" %>
+<br />
 <div class="row">
-<p id="notice"><%= notice %></p>
-
-<p>
-  <h3><%= @blog.title %></h3>
-</p>
-
-<p>
-  <%= @blog.body %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @blog.image %>
-</p>
-</div>
+				<div class="columns">
+					<div class="columns">
+					<div class="row"><h4><%= "#{@blog.title}" %></h4></div>
+						<div class="clearfix">
+							<div class="row right"><%= image_tag "blog/#{@blog.image}" %></div>
+      						<div class="row"><%= @blog.body %></div>
+      						<div class="row"><%#= @blog.published %></div><br />
+      					</div>
+      				</div>
+      			</div>
+      		</div>
+      		<br /><br />
 
 <!-- <p>
   <strong>published:</strong>
