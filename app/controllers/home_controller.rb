@@ -28,7 +28,7 @@ class HomeController < ApplicationController
   end
 
   def extension
-    render :layout => false 
+    response.headers.except! 'X-Frame-Options'
   end
 
 

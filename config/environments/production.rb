@@ -79,7 +79,7 @@ Emailbolt::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   #config.action_dispatch.default_headers = {
-    #'X-Frame-Options' => 'ALLOWALL'
+   # 'X-Frame-Options' => 'ALLOWALL'
   #}
 
   GA.tracker = "UA-46631246-1"
