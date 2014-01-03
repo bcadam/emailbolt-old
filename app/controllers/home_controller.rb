@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
 	helper_method :get_data
 
+  layout "extensionlayout", :only => [ :extension ]
+
   def index
     #@users = User.all
     #response.headers['X-Frame-Options'] = "ALLOWALL"
