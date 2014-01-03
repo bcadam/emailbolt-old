@@ -30,6 +30,10 @@ class HomeController < ApplicationController
   end
 
   def extension
+    if current_user
+      @user = current_user
+    end
+
     response.headers.except! 'X-Frame-Options'
   end
 
