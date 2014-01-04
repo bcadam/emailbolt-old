@@ -4,8 +4,7 @@ class HomeController < ApplicationController
   layout "extensionlayout", :only => [ :extension ]
 
   def index
-    #@users = User.all
-    #response.headers['X-Frame-Options'] = "ALLOWALL"
+    @users = User.all
   end
 
   def lookup

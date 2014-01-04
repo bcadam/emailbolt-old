@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :admin_user?
   helper_method :correct_user_nickname?
 
+
   private
     def current_user
       begin

@@ -17,6 +17,7 @@ class BoltsController < ApplicationController
   # GET /bolts/new
   def new
     @bolt = Bolt.new
+    response.headers.except! 'X-Frame-Options'
   end
 
   def instant
