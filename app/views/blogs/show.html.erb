@@ -1,4 +1,5 @@
 <% content_for :title, "EmailBolt #{@blog.title}" %>
+<% set_meta_tags :description => @blog.body.strip_tags %>
 <br />
 <div class="row">
 				<div class="columns">
