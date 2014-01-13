@@ -6,7 +6,7 @@
 					<div class="row"><h4><%= "#{@blog.title}" %></h4></div>
 						<div class="clearfix">
 							<div class="row right"><%= image_tag "blog/#{@blog.image}" %></div>
-      						<div class="row"><%= @blog.body %></div>
+      						<div class="row"><%= @blog.body.gsub(/\n/, '<br/>').html_safe %></div>
       						<div class="row"><%#= @blog.published %></div><br />
       					</div>
       				</div>

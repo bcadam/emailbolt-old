@@ -29,6 +29,7 @@ gem 'rest-client'
 gem 'google-analytics-rails'
 #gem 'json'
 gem 'forgery', '0.5.0'
+#gem "blogit"
 
 gem 'meta-tags', :require => 'meta_tags'
 

@@ -2,7 +2,7 @@
 <% set_meta_tags :title => 'EmailBolt Security Tool' %>
 <% set_meta_tags :description => "Run a security check on the data that is currently tied to your email address." %>
 <% if @lookup != nil %>
-<% temparray = JSON.parse(get_data(@lookup.to_s)) %>
+<%= temparray = JSON.parse(get_data(@lookup.to_s)) %>
 <% temparray = temparray.keys %>
 <% threats = temparray.length %>
 <% total = 12 - threats %>
@@ -11,9 +11,14 @@
     <% if total == nil %>
     <div class="row">
     <div class="large-12 smallcolumns">
+    <div class="large-12 smallcolumns">
     <h3>See what your email is saying about you!</h3>
     <p>Your online identity is being mapped by the good, the bad, and the ugly. Use our tool to see what others know about you from your email.</p>
-    <%= render ('shared/emailcheck') %>
+    </div>
+    <div class="row">
+    <%#= image_tag ("magnifying128.png"), :class => "right large-4 medium-6 hide-for-small-only" %>
+    <div class="large-12 medium-12 small-12 smallcolumns right"><%= render ('shared/emailcheck') %></div>
+    </div>
     </div>
     </div>
     <% end %>
