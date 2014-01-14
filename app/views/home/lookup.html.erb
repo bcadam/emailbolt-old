@@ -1,11 +1,13 @@
 <% content_for :title, "EmailBolt" %>
 <% set_meta_tags :title => 'EmailBolt Security Tool' %>
 <% set_meta_tags :description => "Run a security check on the data that is currently tied to your email address." %>
+<% remainder = ["age","gender","zip","education","household_income","home_market_value","home_owner_status","length_of_residence","marital_status","occupation","children","interests"] %>
 <% if @lookup != nil %>
 <% temparray = JSON.parse(get_data(@lookup.to_s)) %>
 <% temparray = temparray.keys %>
 <% threats = temparray.length %>
 <% total = 12 - threats %>
+<% remainder = remainder-temparray %>
 <% end %>
 <style>
 #custom-tweet-button a {
@@ -103,7 +105,7 @@
         <% end %>
             <div class="large-12 columns">
 
-                <% temparray.each do |b| %>
+            <% temparray.each do |b| %>
 
                 <div class="large-3 medium-4 small-6 columns left">
                     <%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;max-width:256px;max-height:256px;" %>
@@ -112,14 +114,33 @@
                     </div>
                 </div>
 
-                <% end %>    
+                <% end %>  
 
             </div>
 
-        <!-- End Thumbnails -->
+        <div class="large-12 columns">
 
-        
-    <% end %>
+        <div class="row">
+        <h4>What's still private!</h4>
+        <% remainder.each do |b| %>
+
+                <div class="large-3 medium-4 small-6 columns left">
+                    <%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;max-width:256px;max-height:256px;filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */" %>
+                    <div class="panel" class="small-panel" style="min-height:100px">
+                        <h4><%= b.humanize %></h4>
+                    </div>
+                </div>
+
+                <% end %>  
+                </div>
+                </div>
+        <!-- End Thumbnails -->
+            <% end %>
+
+            
+
 
 <style>
     canvas
