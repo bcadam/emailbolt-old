@@ -7,6 +7,14 @@
 <% threats = temparray.length %>
 <% total = 12 - threats %>
 <% end %>
+<style>
+#custom-tweet-button a {
+    height: 128px;
+    width: 128px;
+    border-style: none !important;
+}
+
+</style>
 <br />
     <% if total == nil %>
     <div class="row">
@@ -40,18 +48,37 @@
                     <div class="panel large-12 medium-12 small-12 columns">
                     
                     <h4>Your security status.</h4>
-                        <div class="large-6 small-12 columns">
-                            <div class="large-4 medium-2 small-12 columns" style="height:40px;width:40px;background-color:#FF8153;"></div>
-                            <div class="large-8 medium-10 small-12 columns right"><h6>There are <%= threats %> data point matches.</h6></div>
+                        <div class="large-4 medium-6 small-12 columns">
+                            <style type="text/css" media="screen">
+                            #custom-tweet-button a {
+                                display: block;
+                                padding: 0px;
+                                background: url('https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_square-128.png') 1px center no-repeat;
+                                border: 1px solid #ccc;
+                                background-size:auto 100%;
+                            }
+                            #custom-facebook-button a {
+                                display: block;
+                                padding: 0px;
+                                background: url('https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_square-128.png') 1px center no-repeat;
+                                border: 1px solid #ccc;
+                                background-size:auto 100%;
+                            }
+                            </style>
+                        <div id="custom-tweet-button">
+                        <a href="https://twitter.com/share?url=http%3A%2F%2Fwww.emailbolt.com%2Flookup&text=My%20email%20is%20saying%20<%=temparray.length %>%20things%20about%20me.%20What%20does%20yours%20say%20about%20you%3F%20%23lockitdown%20%40EmailBolt" target="_blank"></a>
                         </div>
-                        <div class="large-6 small-12 columns">
-                            <div class="large-4 medium-2 small-12 columns" style="height:40px;width:40px;background-color:#FFEA88;"></div>
-                            <div class="large-8 medium-10 small-12 columns right"><h6>There are <%= total %> data points missing.</h6></div>
+        
                         </div>
-                        <div class="row"><br /></div>
-                        <div class="large-6 small-12 columns">
-                        <%= social_share_button_tag("My email address is telling others #{temparray.length} things about me. What is yours saying about you", :rel => "http://www.EmailBolt.com") %>
+                    
+                        <div class="large-4 medium-6 small-12 columns">
+                            <div class="large-4 medium-2 small-2 columns" style="height:40px;width:40px;background-color:#FF8153;"></div>
+                            <div class="large-8 medium-8 small-9 columns right"><h6>There are <%= threats %> data point matches.</h6></div>
                         </div>
+                        <div class="large-4 medium-6 small-12 columns">
+                            <div class="large-4 medium-2 small-2 columns" style="height:40px;width:40px;background-color:#FFEA88;"></div>
+                            <div class="large-8 medium-8 small-9 columns right"><h6>There are <%= total %> data points missing.</h6></div>
+                        </div>                        
                         <% if temparray.length == 0 %>
                         <div class="large-12 small-12 columns"><br />
                             <h6>There is no information currently tied to your email address that can be purchased by third parties. To keep it that way, use bolts to create private indiviual addresses for your different contacts and services.</h6></div>
