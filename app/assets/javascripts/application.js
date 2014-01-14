@@ -15,6 +15,9 @@
 // Note: Foundation 5 won't work with turbolinks
 //= require foundation
 //= require_tree .
+
+#= require social-share-button
+
 $(function() {
   $(document).foundation();
 });

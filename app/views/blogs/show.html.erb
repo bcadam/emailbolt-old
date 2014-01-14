@@ -1,5 +1,5 @@
 <% content_for :title, "EmailBolt #{@blog.title}" %>
-<% set_meta_tags :description => @blog.body.strip_tags %>
+<% set_meta_tags :description => @blog.body %>
 <br />
 <div class="row">
 				<div class="columns">
@@ -9,11 +9,13 @@
 							<div class="row right"><%= image_tag "blog/#{@blog.image}" %></div>
       						<div class="row"><%= @blog.body.gsub(/\n/, '<br/>').html_safe %></div>
       						<div class="row"><%#= @blog.published %></div><br />
+                  <%#= social_share_button_tag("I just read #{@blog.title}", :url => "http://emailbolt.com/blog/" ) %>
       					</div>
       				</div>
       			</div>
       		</div>
       		<br /><br />
+          
 
 <!-- <p>
   <strong>published:</strong>

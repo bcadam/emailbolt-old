@@ -30,6 +30,7 @@ gem 'google-analytics-rails'
 #gem 'json'
 gem 'forgery', '0.5.0'
 #gem "blogit"
+gem 'social-share-button'
 
 gem 'meta-tags', :require => 'meta_tags'
 
