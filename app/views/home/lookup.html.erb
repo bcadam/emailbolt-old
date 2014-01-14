@@ -122,13 +122,11 @@
         <div class="large-12 columns">
 
         <div class="row">
+        
         <h4>What's still private!</h4>
         <% remainder.each do |b| %>
-
                 <div class="large-3 medium-4 small-6 columns left">
-                    <%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;max-width:256px;max-height:256px;filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */" %>
+                    <%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;max-width:256px;max-height:256px;", :class => "hidden_image" %>
                     <div class="panel" class="small-panel" style="min-height:100px">
                         <h4><%= b.humanize %></h4>
                     </div>
@@ -143,6 +141,25 @@
 
             
 
+<style>
+        .hidden_image:hover
+        {
+            filter: none;
+            -webkit-filter: grayscale(0%);
+            -webkit-transition: all .8s ease;
+            -moz-transition: all .8s ease;
+            -ms-transition: all .8s ease;
+            -o-transition: all .8s ease;
+            transition: all .8s ease;
+        }
+
+        .hidden_image
+        {
+            filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+            filter: gray; /* IE6-9 */
+            -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+        }
+</style>
 
 <style>
     canvas
