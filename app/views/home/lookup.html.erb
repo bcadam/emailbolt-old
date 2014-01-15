@@ -2,22 +2,15 @@
 <% set_meta_tags :title => 'EmailBolt Security Tool' %>
 <% set_meta_tags :description => "Run a security check on the data that is currently tied to your email address." %>
 <% remainder = ["age","gender","zip","education","household_income","home_market_value","home_owner_status","length_of_residence","marital_status","occupation","children","interests"] %>
-<% if @lookup != nil %>
+<br />
+<% if @lookup != nil #check for lookup variable to run email api%>
 <% temparray = JSON.parse(get_data(@lookup.to_s)) %>
 <% temparray = temparray.keys %>
 <% threats = temparray.length %>
 <% total = 12 - threats %>
 <% remainder = remainder-temparray %>
 <% end %>
-<style>
-#custom-tweet-button a {
-    height: 128px;
-    width: 128px;
-    border-style: none !important;
-}
 
-</style>
-<br />
     <% if total == nil %>
     <div class="row">
     <div class="large-12 smallcolumns">
@@ -32,6 +25,7 @@
     </div>
     </div>
     <% end %>
+
     <% if total != nil %>
     <div class="row">
     <h3>Results</h3>
@@ -59,22 +53,7 @@
                             <div class="large-8 medium-8 small-9 columns right"><h6>There are <%= total %> data points missing.</h6></div>
                         </div>
                         <div class="large-4 medium-6 small-12 columns">
-                            <style type="text/css" media="screen">
-                            #custom-tweet-button a {
-                                display: block;
-                                padding: 0px;
-                                background: url('https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_square-128.png') 1px center no-repeat;
-                                border: 1px solid #ccc;
-                                background-size:auto 100%;
-                            }
-                            #custom-facebook-button a {
-                                display: block;
-                                padding: 0px;
-                                background: url('https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_square-128.png') 1px center no-repeat;
-                                border: 1px solid #ccc;
-                                background-size:auto 100%;
-                            }
-                            </style>
+                            
                         <div id="custom-tweet-button">
                         <a onclick="window.open(this.href, 'mywin',
 'width=400,height=500,toolbar=1,resizable=0'); return false;" href="https://twitter.com/share?url=http%3A%2F%2Fwww.emailbolt.com%2Flookup&text=My%20email%20is%20saying%20<%=temparray.length %>%20things%20about%20me.%20What%20does%20yours%20say%20about%20you%3F%20%23lockitdown%20%40EmailBolt" ></a>
@@ -83,7 +62,7 @@
                         </div>                    
                         <% if temparray.length == 0 %>
                         <div class="large-12 small-12 columns"><br />
-                            <h6>There is no information currently tied to your email address that can be purchased by third parties. To keep it that way, use bolts to create private indiviual addresses for your different contacts and services.</h6></div>
+                            <h6>There is no information currently tied to your email address that can be purchased by third parties. To keep it that way, use bolts to create private indiviual addresses for your different contacts and services.</h6>
                         </div>
                         <% end %>
                             
@@ -102,7 +81,6 @@
         <!-- Thumbnails -->
         <% if temparray.length != 0 %>
             <h4>What's publicly available for your email <%= @lookup %></h4>
-        <% end %>
             <div class="large-12 columns">
 
             <% temparray.each do |b| %>
@@ -117,27 +95,28 @@
                 <% end %>  
 
             </div>
+        <% end %>
+
         <% if remainder.length != 0 %>
 
         <div class="large-12 columns">
-
         <div class="row">
         
         <h4>What's still private!</h4>
-        <% remainder.each do |b| %>
-                <div class="large-3 medium-4 small-6 columns left">
-                    <%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;max-width:256px;max-height:256px;", :class => "hidden_image" %>
-                    <div class="panel" class="small-panel" style="min-height:100px">
-                        <h4><%= b.humanize %></h4>
+            <% remainder.each do |b| %>
+                    <div class="large-3 medium-4 small-6 columns left">
+                        <%= image_tag ('data/' + b + '256.png'), :style => "width:100%;height:auto;max-width:256px;max-height:256px;", :class => "hidden_image" %>
+                        <div class="panel" class="small-panel" style="min-height:100px">
+                            <h4><%= b.humanize %></h4>
+                        </div>
                     </div>
-                </div>
 
-                <% end %>  
+            <% end %>  
+        </div>
                 </div>
-                </div>
-                <% end %>
+        <% end %>
         <!-- End Thumbnails -->
-            <% end %>
+    <% end %>
 
             
 
@@ -159,16 +138,39 @@
             filter: gray; /* IE6-9 */
             -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
         }
-</style>
+        #custom-tweet-button a {
+            height: 128px;
+            width: 128px;
+            border-style: none !important;
+        }
 
-<style>
-    canvas
+        canvas
         {
         width: 100% !important;
         max-width: 800px;
         height: auto !important;
         }
+
 </style>
+
+<style type="text/css" media="screen">
+    #custom-tweet-button a {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        background: url('https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_square-128.png') 1px center no-repeat;
+        border: 1px solid #ccc;
+        background-size:auto 100%;
+    }
+    #custom-facebook-button a {
+        display: block;
+        padding: 0px;
+        background: url('https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_square-128.png') 1px center no-repeat;
+        border: 1px solid #ccc;
+        background-size:auto 100%;
+    }
+</style>
+
 
 <script>
 var buyerData = [

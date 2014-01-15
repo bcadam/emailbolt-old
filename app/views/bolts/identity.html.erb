@@ -1,0 +1,56 @@
+<% set_meta_tags :description => "Get a random identity to populate a website." %>
+<% content_for :title, "Identity Faker EmailBolt" %>
+	
+<div class="row">
+    
+<!-- Main Feed -->
+    
+    <div class="large-12 medium-12 small-12 columns">
+        
+        <div class="large-12 medium-6 small-6 row" id="first">
+            <p><h3>Identity Faker</h3><strong>It's not their business.</strong> Everytime you're on the internet. People are asking you for your information. Mess that.</p>
+        </div>
+
+        <div class="large-12 medium-6 small-6 row">
+        	<div class="row large-6 medium-6 columns">Full Name: </div>
+        	<div class="row large-6 medium-6 columns"><%= Forgery(:name).full_name %></div>
+        </div>
+
+        <div class="large-12 medium-6 small-6 row">
+			<div class="row large-6 medium-6 columns">Phone: </div>
+			<div class="row large-6 medium-6 columns"><%= Forgery(:address).phone %></div>
+		</div>
+
+		<div class="large-12 medium-6 small-6 row">
+			<div class="row large-6 medium-6 columns">Street Address: </div>
+			<div class="row large-6 medium-6 columns"><%= Forgery(:address).street_address %></div>
+		</div>
+
+		<div class="large-12 medium-6 small-6 row">
+			<div class="row large-6 medium-6 columns">City: </div>
+			<div class="row large-6 medium-6 columns"><%= Forgery(:address).city %></div>
+		</div>
+
+        <div class="large-12 medium-6 small-6 row">
+			<div class="row large-6 medium-6 columns">Zip: </div>
+			<div class="row large-6 medium-6 columns"><%= Forgery(:address).zip %></div>
+		</div>
+
+        <div class="large-12 medium-6 small-6 row">
+			<div class="row large-6 medium-6 columns">State: </div>
+			<div class="row large-6 medium-6 columns"><%= Forgery(:address).state %></div>
+		</div>
+
+        <div class="large-12 medium-6 small-6 row">
+			<div class="row large-6 medium-6 columns">Password: </div>
+			<div class="row large-6 medium-6 columns"><%= Forgery(:basic).password %></div>
+		</div>
+
+        <div class="large-12 medium-6 small-6 row">
+			<div class="row large-6 medium-6 columns">Username: </div>
+			<div class="row large-6 medium-6 columns"><%= Forgery(:internet).user_name %></div>
+		</div>
+ 
+
+        </div>
+        </div>

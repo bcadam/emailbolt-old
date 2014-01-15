@@ -14,6 +14,9 @@ class BoltsController < ApplicationController
   def show
   end
 
+  def identity
+  end
+
   # GET /bolts/new
   def new
     @bolt = Bolt.new
