@@ -1,6 +1,6 @@
 h1. Emailbolt
 
-This application creates disposable private emails. If your email address is ever compromised you can destroy that address and remove any link to your main address.
+This application creates disposable private email addresses. If your email address is ever compromised you can destroy that address and remove any link to your main address.
 
 h2. Ruby on Rails
 
